@@ -1,4 +1,6 @@
 class BannersController < ApplicationController
+  before_filter :authenticate, :except => ["style"]
+  
   def index
     @banners = Banner.all
   end

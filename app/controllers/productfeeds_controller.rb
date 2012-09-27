@@ -1,4 +1,5 @@
 class ProductfeedsController < ApplicationController
+  before_filter :authenticate
 
   def update_feed
     Productfeed.find(params[:id]).update_products

@@ -1,4 +1,5 @@
 class AffiliatesController < ApplicationController
+  before_filter :authenticate
   def index
     @affiliates = Affiliate.all
   end
