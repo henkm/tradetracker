@@ -86,8 +86,9 @@ body{
 }
 .wide-skyscraper img{
   margin-right: 10px;
-  max-width: 146px;
-  max-height: 110px;
+  width: 146px !important;
+  height: 110px !important;
+  overflow: hidden;
 }
 
 .wide-skyscraper .price {
@@ -109,6 +110,13 @@ body{
   margin-top: 0px;
 }
 
+.large-rectangle .price {
+  display: block;
+  font-size: 12px;
+  float: right;
+  font-weight: bold;
+}
+
 .large-rectangle .banner_product {
   width: 325px;
   margin-right: 4px;
@@ -119,8 +127,9 @@ body{
 .large-rectangle img{
   float: left;
   margin-right: 10px;
-  max-width: 100px;
-  max-height: 82px;
+  width: 100px;
+  height: 82px;
+  overflow: hidden;
 }
 
 
@@ -155,15 +164,21 @@ h4 {
 .leaderboard img{
   float: left;
   margin-right: 10px;
-  max-width: 100px;
-  max-height: 92px;
+  width: 100px;
+  height: 92px;
+  overflow: hidden;
 }
 
+.tags {
+  margin-right: 5px;
+  float: left;
+}
 .tags span{
   float: left;
   margin: 0px;
   font-size: 9px;
-  background: red;
+/*  background: red;*/
+  text-decoration: underline;
 }
 
 .company {
@@ -176,21 +191,22 @@ h4 {
 </style>
 
 <div class="banner_products <%= @style[:name].parameterize %>">
-<% for product in @banner.products.order('RAND()').paginate(:page => params[:page], :per_page => @style[:per_page])%>
+<% for product in @banner.products.order(Rails.env == 'production' ? 'RAND()' : 'random()').paginate(:page => params[:page], :per_page => @style[:per_page])%>
   <a href="<%= custom_url(product.url, @banner)%>" target="_blank" class="banner_product">
     <%= image_tag(product.image) if product.image.present? %>
     <span class="company"><%= product.productfeed.name %></span>
+    
     <h3><%= truncate(product.title, :length => 60, :omission => '...') %></h3>
     <h4><%= product.byline %></h4>
     <div class="description"><%= raw truncate(strip_tags(product.description), :length => 85, :omission => '...') %></div>
     <div class="tags">
+
       <% [1,2,3].each do |i|%>
         <span><%= product.send("extra_info#{i}") %></span>
        <% end %>
      </div>
-
-     <span class="price"><%= product_price(product).html_safe %></span>
-     
+    
+     <span class="price"><%= product_price(product).html_safe %></span>     
     </a>
 <% end %>
 </div>

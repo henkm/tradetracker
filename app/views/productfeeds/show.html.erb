@@ -4,7 +4,7 @@
   <%= @productfeed.xml_url %>
 </p>
 <p>
-  <%= link_to "Producten bijwerken", update_product_feed_path(@productfeed)%>
+  <%= link_to "Producten bijwerken", update_product_feed_path(@productfeed), "data-no-turbolink" => ""%>
 </p>
 
 <%= render @products %>
