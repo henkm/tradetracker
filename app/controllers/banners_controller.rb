@@ -1,6 +1,6 @@
 class BannersController < ApplicationController
   before_filter :authenticate, :except => ["style"]
-  
+  caches_action :style, :cache_path => Proc.new {|c| c.request.url }, :expires_in => 30.minutes, :unless => Proc.new {params[:wijzig].present?}  
   def index
     @banners = Banner.all
   end
@@ -26,7 +26,7 @@ class BannersController < ApplicationController
     #   # facet(:publish_month)
     #   # with(:publish_month, params[:month]) if params[:month].present?
     # end
-    @products = @banner.products.order("rand()").paginate(:page => params[:page], :per_page => 15)
+    @products = @banner.products.order("RANDOM()").paginate(:page => params[:page], :per_page => 15)
   end
 
   def new
