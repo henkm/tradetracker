@@ -26,7 +26,7 @@ class BannersController < ApplicationController
     #   # facet(:publish_month)
     #   # with(:publish_month, params[:month]) if params[:month].present?
     # end
-    @products = @banner.products.order("RANDOM()").paginate(:page => params[:page], :per_page => 15)
+    @products = @banner.products.order("RAND()").paginate(:page => params[:page], :per_page => 15)
   end
 
   def new
