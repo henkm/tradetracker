@@ -176,7 +176,7 @@ h4 {
 </style>
 
 <div class="banner_products <%= @style[:name].parameterize %>">
-<% for product in @banner.products.order('random()').paginate(:page => params[:page], :per_page => @style[:per_page])%>
+<% for product in @banner.products.order('RAND()').paginate(:page => params[:page], :per_page => @style[:per_page])%>
   <a href="<%= custom_url(product.url, @banner)%>" target="_blank" class="banner_product">
     <%= image_tag(product.image) if product.image.present? %>
     <span class="company"><%= product.productfeed.name %></span>
