@@ -1,0 +1,35 @@
+<% title "Banner: #{@banner.name}" %>
+
+<p>
+  <strong>Affiliate:</strong>
+  <%= @banner.affiliate.name %>
+</p>
+<% if @banner.style == "i-frame winkel"%>
+  <%= form_tag @banner, :method => :get do %>
+    <p>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Zoeken", :name => nil %>
+    </p>
+  <% end %>
+  <%= will_paginate @products %>
+  <%= render @products %>
+  <%= will_paginate @products %>
+<% else %>
+
+
+  <% [:leaderboard, :large_rectangle, :medium_rectangle, :wide_skyscraper, :skyscraper].each do |style|%>
+    <h3><%= Banner.styles[style][:name] %>:</h3>
+    <div class="code_block">
+      <%= raw Pygments.highlight("<iframe src=\"#{banner_style_url(@banner, style)}\" frameBorder=\"none\" width=\"#{ Banner.styles[style][:width]}\" height=\"#{Banner.styles[style][:height]}\"></iframe>", lexer: :html) %>
+    </div>
+    <div class="banner_example" style="width: <%= Banner.styles[style][:width]%>px; height: <%= Banner.styles[style][:height]%>px;">
+      <iframe src="<%= banner_style_path(@banner, style)%>" frameBorder="none" width="<%= Banner.styles[style][:width]%>" height="<%= Banner.styles[style][:height]%>"></iframe>
+    </div>
+
+  <% end %>
+<% end %>
+<p>
+  <%= link_to "Bewerk", edit_banner_path(@banner) %> |
+  <%= link_to "Verwijder", @banner, :confirm => 'Weet je het zeker?', :method => :delete %> |
+  <%= link_to "Overzicht", banners_path %>
+</p>

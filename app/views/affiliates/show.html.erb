@@ -1,0 +1,16 @@
+<% title "Affiliate" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @affiliate.name %>
+</p>
+<p>
+  <strong>Tradetracker:</strong>
+  <%= @affiliate.tradetracker_id %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_affiliate_path(@affiliate) %> |
+  <%= link_to "Destroy", @affiliate, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", affiliates_path %>
+</p>

@@ -1,0 +1,14 @@
+<%= simple_form_for @banner do |f| %>
+  <%= f.input :affiliate_id, as: :select, collection: Affiliate.all %>
+  <%= f.input :name %>
+  <%= f.input :style, as: :select, collection: ["Standaard", "i-frame winkel"]%>
+  <%= f.input :custom_css %>
+  <%= f.input :show_image%>
+  <%= f.input :max_text_size %>
+  <%= hidden_field_tag "banner[productfeed_ids][]", nil %>
+  <% Productfeed.all.each do |feed|%>
+    <%= check_box_tag "banner[productfeed_ids][]", feed.id, @banner.productfeed_ids.include?(feed.id), id: dom_id(feed) %>
+    <%= label_tag dom_id(feed), feed.name %><div class="clear"></div>
+  <% end %>
+  <%= f.button :submit %>
+<% end %>

@@ -1,0 +1,19 @@
+<% title "Affiliates" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Tradetracker</th>
+  </tr>
+  <% for affiliate in @affiliates %>
+    <tr>
+      <td><%= affiliate.name %></td>
+      <td><%= affiliate.tradetracker_id %></td>
+      <td><%= link_to "Show", affiliate %></td>
+      <td><%= link_to "Edit", edit_affiliate_path(affiliate) %></td>
+      <td><%= link_to "Destroy", affiliate, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Affiliate", new_affiliate_path %></p>

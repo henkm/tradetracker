@@ -1,0 +1,23 @@
+<div id="product_<%= product.id %>" class="product">
+  <%= image_tag(product.image) if product.image.present? %>
+  <div class="product_content">
+    <div class="product_meta">
+      <span class="price"><%= product_price(product).html_safe %></span>
+      <span class="third_party"><%= product.productfeed.name %></span>
+      <div class="buy_btn">
+      <%= link_to product.productfeed.show_link_text, custom_url(product.url, @banner)%>
+      </div>
+    </div>
+
+    <div class="left_content">
+      <h3><%= link_to product.title, product.url %></h3>
+      <div class="meta_info">
+        <%= product.extras %>
+      </div>
+      <%= raw product.description %>
+    </div>
+    
+  </div>
+  <div class="clear"></div>
+</div>
+<div class="clear"></div>

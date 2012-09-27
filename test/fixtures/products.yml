@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  byline: MyString
+  image: MyString
+  old_price: MyString
+  new_price: MyString
+  dna: MyString
+  url: MyString
+  description: MyText
+  productfeed_id: 1
+
+two:
+  title: MyString
+  byline: MyString
+  image: MyString
+  old_price: MyString
+  new_price: MyString
+  dna: MyString
+  url: MyString
+  description: MyText
+  productfeed_id: 1

@@ -1,0 +1,18 @@
+<div class="banner_products <%= style[:name].parameterize %>">
+<% for product in @banner.products.order('random()').paginate(:page => params[:page], :per_page => style[:per_page])%>
+  <a href="<%= custom_url(product.url, @banner)%>" class="banner_product">
+    <%= image_tag(product.image) if product.image.present? %>
+    <h3><%= product.title %></h3>
+    <h4><%= product.byline %></h4>
+    <div class="description"><%= raw product.description %></div>
+    <div class="tags">
+      <% [1,2,3].each do |i|%>
+        <span><%= product.send("extra_info#{i}") %></span>
+       <% end %>
+     </div>
+    
+     <%= product.productfeed.link_text if product.productfeed.link_text%>
+     
+    </a>
+<% end %>
+</div>

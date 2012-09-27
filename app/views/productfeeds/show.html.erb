@@ -1,0 +1,17 @@
+<% title @productfeed.name %>
+<p>
+  <strong>Xml Url:</strong>
+  <%= @productfeed.xml_url %>
+</p>
+<p>
+  <%= link_to "Producten bijwerken", update_product_feed_path(@productfeed)%>
+</p>
+
+<%= render @products %>
+<%= will_paginate @products %>
+
+<p>
+  <%= link_to "Bewerk", edit_productfeed_path(@productfeed) %> |
+  <%= link_to "Verwijder", @productfeed, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "Overzicht van alle feeds", productfeeds_path %>
+</p>

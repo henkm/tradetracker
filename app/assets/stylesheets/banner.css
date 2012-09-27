@@ -1,0 +1,53 @@
+.banner_example{
+  margin: 10px;
+  border: 1px solid #dedede;
+}
+
+.description{
+  display: none;
+}
+
+.banner_products a{
+  text-decoration: none;
+  color: #000;
+  display: block;
+}
+
+.banner_product div{
+}
+
+/*LEADERBOARD */
+.leaderboard {
+  font-size: 11px;
+}
+
+.leaderboard .banner_product {
+  width: 235px;
+  border: 1px solid red;
+  float: left;
+  margin-right: 4px;
+}
+
+.leaderboard h3{
+  font-size: 11px;
+  margin-bottom: -10px;
+  margin-top: 0px;
+}
+
+.leaderboard .description{
+  display: none;
+}
+
+.leaderboard img{
+  float: left;
+  margin-right: 10px;
+  max-width: 100px;
+  max-height: 92px;
+}
+
+.tags span{
+  float: left;
+  margin: 0px;
+  font-size: 9px;
+  background: red;
+}

@@ -1,0 +1,77 @@
+<div style="float: left; width: 40%">
+<%= form_for @productfeed do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :name, "Naam van deze productfeed" %><br />
+    <%= f.text_field :name %>
+  </p>
+
+
+  <p>
+    <%= f.label :xml_url %><br />
+    <em>Kopieer de productfeed uit TradeTracker</em><br>
+    <%= f.text_field :xml_url, autofocus: true, style: "width: 300px;" %>
+    <%= link_to "Haal voorbeeldcode op", "#", id: "get-example", "data-no-turbolink" => "" %>
+  </p>
+  <p>
+    <%= f.label :original_id_field, "Unieke ID" %><br />
+    <%= f.text_field :original_id_field, placeholder: "element" %><%= f.text_field :original_id_attribute, placeholder: "attribuut" %>
+  </p>
+
+  <p>
+    <%= f.label :title_field, "Titel" %><br />
+    <%= f.text_field :title_field %>
+  </p>
+  <p>
+    <%= f.label :byline_field, "Ondertitel" %><br />
+    <%= f.text_field :byline_field, placeholder: "element" %><%= f.text_field :byline_attribute, placeholder: "attribuut" %>
+  </p>
+
+  <p>
+    <%= f.label :description_field, "Omschrijving" %><br />
+    <%= f.text_field :description_field %>
+  </p>
+  <p>
+    <%= f.label :url_field, "URL element" %><br />
+    <%= f.text_field :url_field, placeholder: "element" %><%= f.text_field :url_attribute, placeholder: "attribuut" %>
+  </p>
+  <p>
+    <%= f.label :link_text, "Link tekst" %><br />
+    <%= f.text_field :link_text %>
+  </p>
+
+  <p>
+    <%= f.label :currency, "Valuta" %><br />
+    <%= f.text_field :currency_field, placeholder: "element" %><%= f.text_field :currency_attribute, placeholder: "attribuut" %>
+  </p>
+
+  <p>
+    <%= f.label :old_price_field, "Prijs" %><br />
+    <%= f.text_field :old_price_field, placeholder: "element" %><%= f.text_field :old_price_attribute, placeholder: "attribuut" %>
+  </p>
+  <p>
+    <%= f.label :new_price_field, "Prijs na korting" %><br />
+    <%= f.text_field :new_price_field, placeholder: "element" %><%= f.text_field :new_price_attribute, placeholder: "attribuut" %>
+  </p>
+  <p>
+    <%= f.label :image_field, "Afbeelding" %><br />
+    <%= f.text_field :image_field, placeholder: "element" %><%= f.text_field :image_attribute, placeholder: "attribuut" %><%= f.text_field :image_value, placeholder: "value" %>
+  </p>
+
+  <h3>Extra velden</h3>
+  <% [1,2,3].each do |i| %>
+  <p>
+    <%= f.label "extra_info#{i}_name", "Extra veld #{i} naam en soort" %><br />
+    <%= f.text_field "extra_info#{i}_name" %>
+    <%= f.select "extra_info#{i}_type", ["Korte tekst", "Lange tekst", "Datum", "Afbeelding"] %><br>
+    <%= f.text_field "extra_info#{i}_field", placeholder: "element" %><%= f.text_field "extra_info#{i}_attribute", placeholder: "attribuut" %><%= f.text_field "extra_info#{i}_value", placeholder: "value" %>
+  </p>
+  <% end %>
+  <p><%= f.submit %></p>
+<% end %>
+</div>
+<div style="float: left; width: 60%; overflow: scroll;">
+  <div id="xml_example">
+</div>
+</div>
+<div style="clear: both;"></div>

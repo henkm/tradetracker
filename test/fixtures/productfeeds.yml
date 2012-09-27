@@ -1,0 +1,21 @@
+one:
+  xml_url: MyString
+  title_field: MyString
+  description_field: MyString
+  url_field: MyString
+  link_text: MyString
+  byline_field: MyString
+  old_price_field: MyString
+  new_price_field: MyString
+  image_field: MyString
+
+two:
+  xml_url: MyString
+  title_field: MyString
+  description_field: MyString
+  url_field: MyString
+  link_text: MyString
+  byline_field: MyString
+  old_price_field: MyString
+  new_price_field: MyString
+  image_field: MyString
