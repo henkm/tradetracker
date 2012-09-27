@@ -41,6 +41,10 @@ gem 'turbolinks'
 
 # Deploy with Capistrano
 # gem 'capistrano'
+group :production do
+  gem 'mysql2', '>=0.3'
+  gem 'therubyracer', require: "v8"
+end
 
 # To use debugger
 # gem 'debugger'
