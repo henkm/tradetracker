@@ -43,7 +43,7 @@ module ApplicationHelper
     if product.old_price.present? && product.old_price.to_f.to_i > 0
       number_to_currency(product.old_price.to_f, :unit => cur, :separator => ",", :delimiter => "", :format => "%u %n")
     else
-      "Koop nu"
+      product.productfeed.link_text
     end
   end
 end
