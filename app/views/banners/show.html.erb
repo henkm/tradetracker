@@ -16,14 +16,15 @@
   <%= will_paginate @products %>
 <% else %>
 
-
+  <% random_number = rand(100)%>
   <% [:leaderboard, :large_rectangle, :medium_rectangle, :wide_skyscraper, :skyscraper].each do |style|%>
     <h3><%= Banner.styles[style][:name] %>:</h3>
     <div class="code_block">
-      <%= raw Pygments.highlight("<iframe src=\"#{banner_style_url(@banner, style)}\" frameBorder=\"none\" width=\"#{ Banner.styles[style][:width]}\" height=\"#{Banner.styles[style][:height]}\"></iframe>", lexer: :html) %>
+      
+      <%= raw Pygments.highlight("<iframe src=\"#{banner_style_url(@banner, style, rand: random_number)}\" frameBorder=\"none\" width=\"#{ Banner.styles[style][:width]}\" height=\"#{Banner.styles[style][:height]}\"></iframe>", lexer: :html) %>
     </div>
     <div class="banner_example" style="width: <%= Banner.styles[style][:width]%>px; height: <%= Banner.styles[style][:height]%>px;">
-      <iframe src="<%= banner_style_path(@banner, style)%>" frameBorder="none" width="<%= Banner.styles[style][:width]%>" height="<%= Banner.styles[style][:height]%>"></iframe>
+      <iframe src="<%= banner_style_path(@banner, style, rand: random_number)%>" frameBorder="none" width="<%= Banner.styles[style][:width]%>" height="<%= Banner.styles[style][:height]%>"></iframe>
     </div>
 
   <% end %>
