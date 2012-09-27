@@ -2,32 +2,20 @@
 
 <table>
   <tr>
-    <th>Xml Url</th>
-    <th>Title Field</th>
-    <th>Description Field</th>
-    <th>Url Field</th>
-    <th>Link Text</th>
-    <th>Byline Field</th>
-    <th>Old Price Field</th>
-    <th>New Price Field</th>
-    <th>Image Field</th>
+    <th>Naam</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    
   </tr>
   <% for productfeed in @productfeeds %>
     <tr>
-      <td><%= productfeed.xml_url %></td>
-      <td><%= productfeed.title_field %></td>
-      <td><%= productfeed.description_field %></td>
-      <td><%= productfeed.url_field %></td>
-      <td><%= productfeed.link_text %></td>
-      <td><%= productfeed.byline_field %></td>
-      <td><%= productfeed.old_price_field %></td>
-      <td><%= productfeed.new_price_field %></td>
-      <td><%= productfeed.image_field %></td>
-      <td><%= link_to "Show", productfeed %></td>
-      <td><%= link_to "Edit", edit_productfeed_path(productfeed) %></td>
-      <td><%= link_to "Destroy", productfeed, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= productfeed.name %></td>
+      <td><%= link_to "Bekijk", productfeed %></td>
+      <td><%= link_to "Bewerk", edit_productfeed_path(productfeed) %></td>
+      <td><%= link_to "Verwijder", productfeed, :confirm => 'Weet je het zeker? Alle producten die eraan gekoppeld zijn worden dan ook verwijderd...', :method => :delete %></td>
     </tr>
   <% end %>
 </table>
 
-<p><%= link_to "New Productfeed", new_productfeed_path %></p>
+<p><%= link_to "Nieuwe Productfeed", new_productfeed_path %></p>
