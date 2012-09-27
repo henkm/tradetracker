@@ -13,11 +13,11 @@ class Banner < ActiveRecord::Base
   
   def self.styles
     {
-      leaderboard: {name: "leaderboard", width: 728, height: 90, per_page: 3}, 
-      large_rectangle: {name: "large rectangle", width: 336, height: 280, per_page: 3},
-      medium_rectangle: {name: "medium rectangle", width: 300, height: 250, per_page: 2},
-      wide_skyscraper: {name: "wide skyscraper", width: 160, height: 600, per_page: 3},
-      skyscraper: {name: "skyscraper", width: 120, height: 600, per_page: 1}
+      leaderboard: {name: "leaderboard", width: 728, height: 90, per_page: 3, text_length: 35}, 
+      large_rectangle: {name: "large rectangle", width: 336, height: 280, per_page: 3, text_length: 85},
+      medium_rectangle: {name: "medium rectangle", width: 300, height: 250, per_page: 2, text_length: 85},
+      wide_skyscraper: {name: "wide skyscraper", width: 160, height: 600, per_page: 3, text_length: 85},
+      skyscraper: {name: "skyscraper", width: 120, height: 600, per_page: 1, text_length: 85}
     }
   end
 end

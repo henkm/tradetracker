@@ -160,7 +160,7 @@ h4 {
 }
 
 .leaderboard .description{
-  font-size: 8px;
+  font-size: 9px;
 }
 
 .leaderboard img{
@@ -215,7 +215,7 @@ h4 {
     
     <h3><%= truncate(product.title, :length => 60, :omission => '...') %></h3>
     <h4><%= product.byline %></h4>
-    <div class="description"><%= raw truncate(strip_tags(product.description), :length => 85, :omission => '...') %></div>
+    <div class="description"><%= raw truncate(strip_tags(product.description), :length => @style[:text_length], :omission => '...') %></div>
     <div class="tags">
 
       <% [1,2,3].each do |i|%>
