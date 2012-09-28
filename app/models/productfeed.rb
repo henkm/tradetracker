@@ -31,6 +31,7 @@ class Productfeed < ActiveRecord::Base
         product.image = get_value(item, image_field, image_attribute, image_value)
         product.description = get_value(item, description_field)
         product.url = get_value(item, url_field, url_attribute)
+        product.url = systemize_url(product.url)
         product.old_price = get_value(item, old_price_field, old_price_attribute)
         product.new_price = get_value(item, new_price_field, new_price_attribute)
         product.currency = get_value(item, currency_field, currency_attribute)
@@ -91,5 +92,9 @@ class Productfeed < ActiveRecord::Base
     else
       item.xpath(element).text if element.present?
     end
+  end
+  
+  def systemize_url(url)
+    url.gsub(/(_|a=)(#{Affiliate.all.map{|a| a.tradetracker_id}.join('|')})/, "\\1[FIND_REPLACE_ID]")
   end
 end
