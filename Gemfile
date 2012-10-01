@@ -44,6 +44,7 @@ gem 'turbolinks'
 group :production do
   gem 'mysql2', '>=0.3'
   gem 'therubyracer', require: "v8"
+  gem 'rake'
 end
 
 # To use debugger

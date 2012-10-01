@@ -150,6 +150,7 @@ DEPENDENCIES
   progress_bar
   pygments.rb
   rails (= 3.2.8)
+  rake
   redcarpet
   sass-rails (~> 3.2.3)
   simple_form
