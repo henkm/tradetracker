@@ -12,8 +12,12 @@ class Banner < ActiveRecord::Base
   # end
   
   def self.styles
+    
+    # let op: als hier een element wordt verwijderd/gewijzigd, heeft dat effect op alle bestaande banners
+    # als je bijv. :leaderboard verwijderd, is deze niet meer op te vragen en geeft dat een foutmelding.
     {
       leaderboard: {name: "leaderboard", width: 728, height: 90, per_page: 3, text_length: 35}, 
+      dagjeweg_688: {name: "dagjeweg 620x280", width: 620, height: 280, per_page: 4, text_length: 90}, 
       dagjeweg_620: {name: "dagjeweg 620x280", width: 620, height: 280, per_page: 4, text_length: 90}, 
       dagjeweg_488: {name: "dagjeweg 488x280", width: 488, height: 280, per_page: 2, text_length: 200},
       large_rectangle: {name: "large rectangle", width: 336, height: 280, per_page: 3, text_length: 85},
