@@ -23,8 +23,9 @@ module ApplicationHelper
   
   def custom_url(url, banner=nil)
     if banner
-      old_affiliate_code = url.split('_&r=').first.split('_').last
-      url.gsub(old_affiliate_code.to_s, banner.affiliate.tradetracker_id.to_s)
+      url.gsub("[FIND_REPLACE_ID]", banner.affiliate.tradetracker_id.to_s)
+      # old_affiliate_code = url.split('_&r=').first.split('_').last
+      # url.gsub(old_affiliate_code.to_s, banner.affiliate.tradetracker_id.to_s)
       # http://www.concertgebouw.nl/kaarten/index.php?tt=8522_319827_40405_&r=http%3A%2F%2Fwww.concertgebouw.nl%2Fx%2F32185
       # http://www.concertgebouw.nl/kaarten/index.php?tt=8522_319827_481_&r=http%3A%2F%2Fwww.concertgebouw.nl%2Fx%2F26400
     else
