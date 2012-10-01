@@ -14,7 +14,7 @@ class Banner < ActiveRecord::Base
   def self.styles
     {
       leaderboard: {name: "leaderboard", width: 728, height: 90, per_page: 3, text_length: 35}, 
-      dagjeweg_688: {name: "dagjeweg 688x280", width: 688, height: 280, per_page: 4, text_length: 110}, 
+      dagjeweg_620: {name: "dagjeweg 620x280", width: 620, height: 280, per_page: 4, text_length: 90}, 
       dagjeweg_488: {name: "dagjeweg 488x280", width: 488, height: 280, per_page: 2, text_length: 200},
       large_rectangle: {name: "large rectangle", width: 336, height: 280, per_page: 3, text_length: 85},
       medium_rectangle: {name: "medium rectangle", width: 300, height: 250, per_page: 2, text_length: 85},
