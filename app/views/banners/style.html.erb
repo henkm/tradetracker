@@ -9,6 +9,25 @@ body{
   font-family: arial,sans-serif;
   font-size: 14px;
 }
+/* GENERAL */
+
+.tags {
+  margin-right: 5px;
+  float: left;
+}
+.tags span{
+  float: left;
+  margin: 0px;
+  font-size: 9px;
+/*  background: red;*/
+  text-decoration: underline;
+}
+
+.company {
+  font-size: 9px;
+  color: #999;
+}
+
 
 .buy_btn {
   margin-top: 5px;
@@ -182,26 +201,120 @@ h4 {
 
 
 
+/* DAGJEWEG 688*/
+.dagjeweg-688x280 {
+  font-size: 11px;
+  padding: 3px;
+}
 
-
-.tags {
+.dagjeweg-688x280 .banner_product {
+  width: 320px;
+  float: left;
   margin-right: 5px;
+  margin-bottom: 5px;
+  height: 120px;
+  overflow:hidden;
+  border: 1px solid #dedede;
+  padding: 3px;
+}
+
+.dagjeweg-688x280 h3{
+  font-size: 13px;
+  margin-bottom: -10px;
+  margin-top: 0px;
+  max-height: 28px;
+  overflow: hidden;
+}
+
+.dagjeweg-688x280 h4 {
+  font-size: 10px;
+}
+
+.dagjeweg-688x280 .description{
+  font-size: 11px;
+}
+
+.dagjeweg-688x280 .tags span{
+  margin-top: 5px;
+  font-size: 11px;
+}
+
+
+.dagjeweg-688x280 img{
   float: left;
+  margin-right: 6px;
+  width: 130px;
+  height: 115px;
+  overflow: hidden;
 }
-.tags span{
+
+
+.dagjeweg-688x280 .price {
+  display: block;
+  font-size: 18px;
+  float: right;
+  font-weight: bold;
+}
+
+/* DAGJEWEG 688*/
+.dagjeweg-488x280 {
+  font-size: 11px;
+  padding: 3px;
+}
+
+.dagjeweg-488x280 .banner_product {
+  width: 475px;
   float: left;
-  margin: 0px;
-  font-size: 9px;
-/*  background: red;*/
-  text-decoration: underline;
+
+  margin-bottom: 5px;
+  height: 125px;
+  overflow:hidden;
+  border-bottom: 1px solid #dedede;
+  padding: 3px;
+}
+.dagjeweg-488x280 .banner_product:last-child {
+ border: none; 
+ margin-top: 3px;
+}
+.dagjeweg-488x280 h3{
+  font-size: 13px;
+  margin-bottom: -10px;
+  margin-top: 0px;
+  max-height: 28px;
+  overflow: hidden;
+}
+
+.dagjeweg-488x280 h4 {
+  font-size: 10px;
+}
+
+.dagjeweg-488x280 .description{
+  font-size: 11px;
+}
+
+.dagjeweg-488x280 .tags span{
+  margin-top: 5px;
+  font-size: 11px;
 }
 
 
-
-.company {
-  font-size: 9px;
-  color: #999;
+.dagjeweg-488x280 img{
+  float: left;
+  margin-right: 6px;
+  width: 180px;
+  height: 115px;
+  overflow: hidden;
 }
+
+
+.dagjeweg-488x280 .price {
+  display: block;
+  font-size: 18px;
+  float: right;
+  font-weight: bold;
+}
+
+
 
 <%= @banner.custom_css %>
 
@@ -215,7 +328,7 @@ h4 {
     
     <h3><%= truncate(product.title, :length => 60, :omission => '...') %></h3>
     <h4><%= product.byline %></h4>
-    <div class="description"><%= raw truncate(strip_tags(product.description), :length => @style[:text_length], :omission => '...') %></div>
+    <div class="description"><%= raw truncate(strip_tags(product.description).gsub('&bnsp;', ' '), :length => @style[:text_length], :omission => '...') %></div>
     <div class="tags">
 
       <% [1,2,3].each do |i|%>
